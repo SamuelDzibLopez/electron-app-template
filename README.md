@@ -1,4 +1,4 @@
-# Documentación y uso de Electron-app-template
+# Documentación y uso de Electron App Template
 
 Gracias por descargar y utilizar este proyecto personal.
 
@@ -50,3 +50,4 @@ npm install
 npm start
 ~~~
 
+***Nota:*** Este comando desplegará la visualización de nuestro proyecto en modo de desarrollo.

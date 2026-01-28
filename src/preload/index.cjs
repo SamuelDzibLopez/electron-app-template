@@ -15,7 +15,7 @@ const versionsAPI = {
  */
 const datesAPI = {
   ping: () => ipcRenderer.invoke("ping"),
-  author: "Samuel Dzib López",
+  author: "Samuel Dzib López (DZEL21S)",
 };
 
 /**
