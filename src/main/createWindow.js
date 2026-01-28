@@ -16,7 +16,7 @@ export function createWindow() {
     height: 650,
 
     // Activar/Desactivar barra principal de ventana
-    frame: false,
+    frame: true,
     icon: path.join(__dirname, "../assets/icons/favicon.ico"),
 
     // Activar/Desactivar inicio de ventana FullScreen

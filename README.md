@@ -208,7 +208,7 @@ Puede ***Desactivar/Activar*** las configuraciones a su gusto:
 
 ~~~js
   const win = new BrowserWindow({
-    frame: false, //Activar/Desactivar barra principal de ventana
+    frame: true, //Activar/Desactivar barra principal de ventana
   });
 ~~~
 
