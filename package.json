@@ -1,16 +1,39 @@
 {
-  "name": "name-app",
+  "name": "electron-app-template",
   "version": "1.0.0",
-  "description": "Descripción de App a generar.",
+  "description": "Template base en Electron. Cambia este texto por la descripción de tu aplicación.",
   "main": "src/main/index.js",
+
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "name-author",
-  "license": "ISC",
+
+  "author": "TU NOMBRE O EMPRESA AQUÍ",
+  "license": "MIT",
+
   "devDependencies": {
-    "electron": "^40.0.0"
+    "electron": "^40.0.0",
+    "electron-builder": "^26.4.0"
+  },
+
+  "build": {
+    "appId": "com.tudominio.tuapp",
+    "productName": "Nombre de tu aplicación",
+    "copyright": "Copyright © AÑO TU NOMBRE",
+
+    "directories": {
+      "output": "dist"
+    },
+
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+
+    "win": {
+      "target": "nsis"
+    }
   }
 }
