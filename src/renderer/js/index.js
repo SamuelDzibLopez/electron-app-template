@@ -1,14 +1,13 @@
-import { elements } from "./dom.js";
-import { setAppInfo, pingMain } from "./info.js";
-import { registerEvents } from "./events.js";
+import { elements } from "./functions/dom.js";
+import { setAppInfo,setAppAuthor, pingMain } from "./functions/info.js";
 
 /**
  * Punto de entrada del renderer
  */
 function init() {
   setAppInfo(elements.info);
+  setAppAuthor(elements.spanAuthor);
   pingMain();
-  registerEvents(elements);
 }
 
 // Inicializa cuando el DOM está listo

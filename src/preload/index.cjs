@@ -1,3 +1,4 @@
+// Importación de módulos de Electron
 const { contextBridge, ipcRenderer } = require("electron");
 
 /**
