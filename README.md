@@ -2,113 +2,159 @@
 
 Gracias por descargar y utilizar este proyecto personal.
 
-Este proyecto es utilizado para generar y empaquetar Aplicaciones Web para ser convertidas en Nativas. 
+Este proyecto está diseñado para generar y empaquetar **Aplicaciones Web** y convertirlas en **Aplicaciones Nativas** utilizando **Electron**.
+
+Esta documentación te llevará **desde cero** hasta obtener un **.exe instalable** usando **Electron** y **electron-builder (NSIS)** a partir de este **template**.
 
 ---
-Esta documentación te llevará **desde cero** hasta obtener un **.exe instalable** usando **Electron** y **electron-builder (NSIS)** utilizando este ***template***.
 
-Requisitos:
+## Requisitos
 
-- La aplicación debe realizarse utilizando tecnologias `html`, `css` y `js`.
+- La aplicación debe desarrollarse utilizando:
+  - ``HTML``
+  - ``CSS``
+  - ``JavaScript``
 
-- Ejecutar el build en sistemas ***Windows 10*** o ***Windows 11***. 
+- El proceso de build debe ejecutarse en:
+  - ***Windows 10***
+  - ***Windows 11***
 
-- Tener instalado `Node.js`.
+- Tener instalado **Node.js**
 
-    Para verificar
+Para verificar la instalación:
 
 ~~~bash
 node -v
 npm -v
 ~~~
 
-- Tener instalado `Git` (No estrictamente necesario).
+- Tener instalado **Git** (opcional, pero recomendado).
 
 ---
 
-## Paso 1. Descargar este Repositorio.
+## Paso 1. Descargar este repositorio
 
-Descargar el repositorio en nuestro equipo:
+Clona el repositorio en tu equipo:
 
 ~~~bash
-git clone 
+git clone https://github.com/SamuelDzibLopez/electron-app-template.git
 ~~~
 
-***Nota:*** Una vez descargado nuestro proyecto, seguiremos dentro de nuestro proyecto creado.
+***Nota:*** Una vez descargado el repositorio, trabaja siempre dentro del directorio del proyecto.
 
-## Paso 2. Instalar Dependencias necesarias.
+---
+
+## Paso 2. Instalar dependencias necesarias
+
+Ejecuta el siguiente comando:
 
 ~~~bash
 npm install
 ~~~
 
-***Nota:*** Este comando, instalará de manera automatica, todo lo necesario, para el funcionamiento de la App, tanto para desarrollo, como para el Build final.
+**Nota:** Este comando instalará automáticamente todas las dependencias necesarias tanto para desarrollo como para el build final.
 
-## Paso 3. Visualizar en Desarrollo.
+---
 
-~~~
+## Paso 3. Visualizar la aplicación en desarrollo
+
+Para ejecutar la aplicación en modo desarrollo:
+
+~~~bash
 npm start
 ~~~
 
-***Nota:*** Este comando desplegará la visualización de nuestro proyecto en modo de desarrollo.
+**Nota:** Este comando abrirá la aplicación en una ventana nativa de Electron.
 
-Aqui podremos modificar y crear nuestra App personalizada utilizando ***HTML***, ***CSS*** y ***JavaScript***.
+Aquí podrás modificar y desarrollar tu aplicación usando ``HTML``, ``CSS`` y ``JavaScript``.
 
-## Paso 4. Preparar para generar Instalador (.exe).
+---
 
-Una vez, terminada nuestra App, estamos listos para generar nuestro instalador, solo falta:
+## Paso 4. Preparar el proyecto para generar el instalador (``.exe``)
 
-- Modificar metadatos utiles para nuestra App.
+### Modificar metadatos
 
+Antes de generar el instalador, es necesario modificar algunos metadatos importantes en el archivo `package.json`.
 
-Para ello, debemos agregar y modificar los siguientes datos en el `package.json`, segun nuestros datos personales y aplicables:
+Actualiza los siguientes campos con la información de tu **aplicación**:
 
 ~~~json
-"name": "electron-app-template"
-"description": "..."
-"author": "TU NOMBRE O EMPRESA AQUÍ"
-"build.appId": "com.tudominio.tuapp"
-"build.productName": "Nombre de tu aplicación"
-"build.copyright": "..."
+"name": "electron-app-template",
+"description": "Descripción de tu aplicación",
+"author": "TU NOMBRE O EMPRESA AQUÍ",
+"build.appId": "com.tudominio.tuapp",
+"build.productName": "Nombre de tu aplicación",
+"build.copyright": "Copyright © AÑO TU NOMBRE"
 ~~~
 
-- Agregar un favicon.ico.
+---
 
-Puedes generar un `.ico` valido desde la página:
-
-~~~
-https://www.icoconverter.com/
-~~~
-
-Seleccciona todas las opciones de `size`, incluyendo la opcion (obligatorio) de:
-
-    256 pixeles (only works with 32 bits)
-
-Y: 
-
-    32 bits (16.7M colors & alpha transparency)
-
-Luego, cambia el icon del proyecto `src/icons/favicon.ico` por tu `.ico` personalizado.
-
-***Nota:*** Llamandole siempre `favicon.ico`.
-
-**¡Listo, el `package.json` esta configurado para colocar tu .ico en tu App!**
+<!-- ### Personalizar ventana de Aplicación para Build
 
 
-## Paso 5.Generar Instalador (.exe).
 
-Finalmente, con todas las configuraciones terminadas, podemos generar el `build` e instalador para nuestra App.
+--- -->
 
-Para ello, ejecutamos el siguiente comando desde la `/` de nuestro proyecto:
+### Agregar favicon.ico
+
+Para que tu aplicación tenga **icono** en:
+
+- El archivo `.exe`.
+- El instalador.
+- El acceso directo.
+- La ventana de la aplicación.
+
+Debes generar un archivo **favicon.ico** válido.
+
+Puedes hacerlo desde la siguiente página:
+
+[https://www.icoconverter.com/](https://www.icoconverter.com/)
+
+Al generar el `.ico`, asegúrate de seleccionar:
+
+- Todos los tamaños disponibles.
+- ``256 px (only works with 32 bits)`` (obligatorio).
+- ``32 bits (16.7M colors & alpha transparency)``.
+
+Luego, reemplaza el archivo:
+
+
+`src/assets/icons/favicon.ico`
+
+
+por tu icono personalizado.
+
+**Nota:** El archivo debe llamarse exactamente `favicon.ico`.
+
+**El `package.json` ya está configurado para usar este icono automáticamente.**
+
+---
+
+## Paso 5. Generar el instalador (``.exe``)
+
+Una vez terminada tu aplicación y configurados los metadatos, ejecuta el ***build***:
 
 ~~~bash
 npm run build
 ~~~
 
-Al terminar de empaquetar nuestra App, podremos visualizar un nuevo directorio `dist/`.
+Al finalizar el proceso, se creará una carpeta llamada `dist/`.
 
-Dentro de la carpeta llamada `dist/`, encontraremos el `.exe`.
+Dentro de esta carpeta encontrarás:
 
-Listo para compartir nuestra App con quien deseemos.
+- El instalador `.exe`
+- La versión empaquetada de la aplicación
 
+Este archivo `.exe` está listo para ser distribuido e instalado en otros equipos con Windows.
 
+---
+
+## Notas finales
+
+- Este template está pensado para ser ***simple***, ***limpio*** y ***escalable***.
+- No utiliza frameworks externos.
+- Está inspirado en arquitecturas modernas como ***React*** o ***Next.js***, pero construido únicamente con tecnologías web estándar.
+
+Disfruta creando aplicaciones nativas con **Electron**.
+
+Realizado por ***DZEL21S***.
