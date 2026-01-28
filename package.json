@@ -21,7 +21,7 @@
   "build": {
     "appId": "com.tudominio.tuapp",
     "productName": "Nombre de tu aplicación",
-    "copyright": "Copyright © AÑO TU NOMBRE",
+    "copyright": "Copyright © 2026 TU NOMBRE",
 
     "directories": {
       "output": "dist"
@@ -33,7 +33,16 @@
     ],
 
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "src/assets/icons/favicon.ico"
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Nombre de tu aplicación"
     }
   }
 }

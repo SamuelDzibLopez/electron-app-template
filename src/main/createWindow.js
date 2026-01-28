@@ -14,6 +14,7 @@ export function createWindow() {
   const win = new BrowserWindow({
     width: 900,
     height: 650,
+    icon: path.join(__dirname, "../assets/icons/favicon.ico"),
 
     fullscreen: false,
 
