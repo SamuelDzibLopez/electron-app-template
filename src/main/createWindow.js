@@ -14,8 +14,12 @@ export function createWindow() {
   const win = new BrowserWindow({
     width: 900,
     height: 650,
+
+    // Activar/Desactivar barra principal de ventana
+    frame: false,
     icon: path.join(__dirname, "../assets/icons/favicon.ico"),
 
+    // Activar/Desactivar inicio de ventana FullScreen
     fullscreen: false,
 
     webPreferences: {
@@ -27,6 +31,7 @@ export function createWindow() {
     },
   });
 
+  // Template (Array) para navbar de ventana    
   // const template = [
   //   {
   //     label: "Archivo",
@@ -36,6 +41,7 @@ export function createWindow() {
   //   }
   // ];
 
+  //Convertir Template (Array) en Menu personalizado
   // const menu = Menu.buildFromTemplate(template);
 
   //Descomentar si desea eliminar (null) el menu navito default o uno personalizado (template)

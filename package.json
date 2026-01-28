@@ -1,6 +1,6 @@
 {
   "name": "electron-app-template",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Template base en Electron. Cambia este texto por la descripción de tu aplicación.",
   "main": "src/main/index.js",
 

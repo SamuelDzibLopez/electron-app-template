@@ -1,6 +1,6 @@
 # Documentación y uso de Electron App Template
 
-Gracias por descargar y utilizar este proyecto personal.
+**¡Gracias por descargar y utilizar este proyecto personal!**
 
 Este proyecto está diseñado para generar y empaquetar **Aplicaciones Web** y convertirlas en **Aplicaciones Nativas** utilizando **Electron**.
 
@@ -72,7 +72,7 @@ Aquí podrás modificar y desarrollar tu aplicación usando ``HTML``, ``CSS`` y 
 
 ## Paso 4. Preparar el proyecto para generar el instalador (``.exe``)
 
-### Modificar metadatos
+### 4.1. Modificar metadatos
 
 Antes de generar el instalador, es necesario modificar algunos metadatos importantes en el archivo `package.json`.
 
@@ -85,17 +85,12 @@ Actualiza los siguientes campos con la información de tu **aplicación**:
 "build.appId": "com.tudominio.tuapp",
 "build.productName": "Nombre de tu aplicación",
 "build.copyright": "Copyright © AÑO TU NOMBRE"
+"nsis.shortcutName": "Nombre de tu aplicación"
 ~~~
 
 ---
 
-<!-- ### Personalizar ventana de Aplicación para Build
-
-
-
---- -->
-
-### Agregar favicon.ico
+### 4.2. Agregar favicon.ico
 
 Para que tu aplicación tenga **icono** en:
 
@@ -108,7 +103,11 @@ Debes generar un archivo **favicon.ico** válido.
 
 Puedes hacerlo desde la siguiente página:
 
-[https://www.icoconverter.com/](https://www.icoconverter.com/)
+<a href="https://www.icoconverter.com/" target="_blank" rel="noopener noreferrer">
+  https://www.icoconverter.com/
+</a>
+
+</br>
 
 Al generar el `.ico`, asegúrate de seleccionar:
 
@@ -127,6 +126,109 @@ por tu icono personalizado.
 **Nota:** El archivo debe llamarse exactamente `favicon.ico`.
 
 **El `package.json` ya está configurado para usar este icono automáticamente.**
+
+---
+
+### 4.3. Personalizar Ventana de Aplicación para Build
+
+Una vez ya terminado nuestro desarrollo, podemos ***Activar/Desactivar*** algunas **configuraciones de ventana**, las cuales son utiles en desarrollo, pero en nuestra versión final ***Build***, desactivarlos tendra una mejor experiencia de usuario.
+
+Estas configuraciones se encuentran en nuestro archivo:
+
+`/src/main/createWindow.js`.
+
+Puede ***Desactivar/Activar*** las configuraciones a su gusto:
+
+---
+
+#### 4.3.1. Activar/Desactivar barra principal de ventana
+
+~~~js
+  const win = new BrowserWindow({
+    frame: false, //Activar/Desactivar barra principal de ventana
+  });
+~~~
+
+***Nota:*** Podemos **activar** o **desactivar** la ***barra principal de la ventana*** de nuestra App (Podemos emular una personalizada dentro de nuestro propio contenido)
+
+---
+
+#### 4.3.2. Activar/Desactivar inicio de ventana FullScreen
+
+~~~js
+  const win = new BrowserWindow({
+        fullscreen: false, // Activar/Desactivar inicio de ventana FullScreen
+  });
+~~~
+
+***Nota:*** Podemos **activar** o **desactivar** para que nuestra App inicie con la ***ventana en FullScreen*** en la pantalla. 
+
+---
+
+#### 4.3.3. Activar/Desactivar DevTools
+
+~~~js
+  const win = new BrowserWindow({
+    webPreferences: {
+      devTools: true, //Desactivar en versión final build
+
+    }
+  });
+~~~
+
+***Nota:*** Las ``devTools`` nos son utiles para el ***debug*** de nuestra App al desarrollarse. pero en la version final para el `build`, es importante desactivarlas (`false`), para una ***mejor seguridad*** y ***UX***.
+
+---
+
+#### 4.3.4. Activar/Desactivar/Personalizar barra de navegación de ventana
+
+~~~js
+  //null si desea eliminar el menu navito default o uno personalizado (template)
+  Menu.setApplicationMenu(null);
+~~~
+
+***Nota:*** Si deseamos desactivar el NavBar de nuestra ventana de la App, debemos ingresar `null`, como parametro de `Menu.setApplicationMenu()`; Si deseamos activar el NavBar por default de la ventana, basta con eliminar este método de `Menu`.
+
+Si deseamos generar un NavBar personalizado, podemos generar un `template`:
+
+~~~js
+  // Template (Array) para navbar de ventana  
+  const template = [
+    {
+      label: "Archivo",
+      submenu: [
+        { role: "quit" }
+      ]
+    }
+  ];
+
+  //Convertir Template (Array) en Menu personalizado
+  const menu = Menu.buildFromTemplate(template);
+
+  //Colocar Menu personalizado en ventana
+  Menu.setApplicationMenu(menu);
+~~~
+
+---
+
+#### 4.3.5. Omitir eventos de Keyboard Shortcuts importantes
+
+~~~js
+  // Bloquear Ctrl + Shift + i o F12 (Descomentar para producción)
+
+  win.webContents.on("before-input-event", (event, input) => {
+    if (
+      (input.control && input.shift && input.key.toLowerCase() === "i") ||
+      input.key === "F12"
+    ) {
+      event.preventDefault();
+    }
+  });
+~~~
+
+***Nota:*** Como medida de ***seguridad***, es importante **activar** este listen de eventos al momento de genera el `build` y ***version final*** de nuestra App.
+
+***Nota:*** Esta parte de código se encuentra **comentado**, puede ***descomentarlo*** en la ***versión final*** de su ***App***.
 
 ---
 
