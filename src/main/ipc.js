@@ -1,6 +1,6 @@
 // Importación de módulos de Electron
 import { app, BrowserWindow, ipcMain } from "electron/main";
-
+import { registerPersonajesIpc } from "./ipc/personajes.ipc.js";
 
  // Registra todos los handlers y listeners IPC
 export function registerIpcHandlers() {
@@ -20,4 +20,7 @@ export function registerIpcHandlers() {
       win.setFullScreen(!win.isFullScreen());
     }
   });
+
+  // ---- BACKEND ----
+  registerPersonajesIpc();
 }

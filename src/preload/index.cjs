@@ -39,3 +39,20 @@ contextBridge.exposeInMainWorld("versions", versionsAPI);
 contextBridge.exposeInMainWorld("dates", datesAPI);
 contextBridge.exposeInMainWorld("windowAPI", windowAPI);
 contextBridge.exposeInMainWorld("electronAPI", electronAPI);
+
+
+/**
+ * API expuesta al renderer
+ */
+contextBridge.exposeInMainWorld("electron", {
+
+  /* ======================
+     PERSONAJES (Backend)
+  ====================== */
+  personajes: {
+    create: (data) => ipcRenderer.invoke("personajes:create", data),
+    read: () => ipcRenderer.invoke("personajes:read"),
+    update: (data) => ipcRenderer.invoke("personajes:update", data),
+    delete: (id) => ipcRenderer.invoke("personajes:delete", id),
+  },
+});

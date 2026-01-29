@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electron App Template — CRUD Personajes</title>
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="./../styles/globals.css" />
+</head>
+<body>
+
+  <main class="container">
+
+    <header class="header">
+      <h1>CRUD de Personajes</h1>
+      <p>Backend local vía IPC (sin HTTP)</p>
+    </header>
+
+    <!-- FORM -->
+    <section class="form">
+
+      <div class="field">
+        <label for="id">ID</label>
+        <input id="id" type="number" placeholder="ID del personaje" />
+      </div>
+
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="Nombre" />
+      </div>
+
+      <div class="field">
+        <label for="edad">Edad</label>
+        <input id="edad" type="number" placeholder="Edad" />
+      </div>
+
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="crud-actions">
+      <button id="btn-create" class="btn primary">Create</button>
+      <button id="btn-read" class="btn">Read</button>
+      <button id="btn-update" class="btn warning">Update</button>
+      <button id="btn-delete" class="btn danger">Delete</button>
+    </section>
+
+    <!-- OUTPUT -->
+    <section class="output">
+      <pre id="output">// Aquí se mostrará la respuesta</pre>
+    </section>
+
+    <section class="card">
+      <p id="info" class="info">
+      </p>
+
+      <p class="info">
+        Creador de proyecto: <a href="https://github.com/SamuelDzibLopez" target="_blank" rel="noopener noreferrer" class="github-text-link">
+          <span id="spanAuthor" class="text-bold"></span>
+        </a> 
+      </p>
+
+      <div class="actions">
+        <button id="btnFullscreen">
+          Toggle Fullscreen
+        </button>
+
+        <button id="closeBtn" class="danger">
+          Close App
+        </button>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="links">
+      <a href="index.html">← Regresar a Home</a>
+      <a href="about.html">Ir a About →</a>
+    </section>
+
+    <footer class="footer">
+      <a
+        href="https://github.com/SamuelDzibLopez/electron-app-template"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <img src="./../assets/icons/icon-github-white.svg" alt="GitHub" />
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- JS -->
+  <script type="module" src="./../js/globals.js"></script>
+  <script type="module" src="./../js/personajes.js"></script>
+</body>
+</html>
