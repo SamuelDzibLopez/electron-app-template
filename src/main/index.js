@@ -5,15 +5,16 @@ import { app, BrowserWindow } from "electron/main";
 import { createWindow } from "./createWindow.js";
 import { registerIpcHandlers } from "./ipc.js";
 
-//Evento cuando Electron está listo
+// Inicializar electron (Evento cuando Electron está listo)
 app.whenReady().then(() => {
-  //
+
+  // Inicializar handlers y listeners IPC
   registerIpcHandlers();
 
-  //Creación de ventana
+
+  // Inicializar la ventana de la App 
   createWindow();
 
-  // MacOS: recrear ventana si no hay abiertas
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();

@@ -1,42 +1,37 @@
 {
+  "type": "module",
   "name": "electron-app-template",
   "version": "1.0.3",
   "description": "Template base en Electron. Cambia este texto por la descripción de tu aplicación.",
   "main": "src/main/index.js",
-
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "author": "TU NOMBRE O EMPRESA AQUÍ",
   "license": "MIT",
-
   "devDependencies": {
     "electron": "^40.0.0",
-    "electron-builder": "^26.4.0"
+    "electron-builder": "^26.4.0",
+    "electron-rebuild": "^3.2.9",
+    "picocolors": "^1.1.1"
   },
-
   "build": {
     "appId": "com.tudominio.tuapp",
     "productName": "Nombre de tu aplicación",
     "copyright": "Copyright © 2026 TU NOMBRE",
-
     "directories": {
       "output": "dist"
     },
-
     "files": [
       "src/**/*",
       "package.json"
     ],
-
     "win": {
       "target": "nsis",
       "icon": "src/assets/icons/favicon.ico"
     },
-
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
@@ -44,5 +39,8 @@
       "createStartMenuShortcut": true,
       "shortcutName": "Nombre de tu aplicación"
     }
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2"
   }
 }
