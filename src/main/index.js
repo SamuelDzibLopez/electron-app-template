@@ -1,28 +1,35 @@
-// Importación de módulos de Electron
+// Importar módulos principales de Electron (proceso main)
 import { app, BrowserWindow } from "electron/main";
 
-// Importamos módulos internos
+// Importar módulos internos del proceso main
 import { createWindow } from "./createWindow.js";
 import { registerIpcHandlers } from "./ipc.js";
 
-// Inicializar electron (Evento cuando Electron está listo)
+// Importar función principal para inicializar el backend (server)
+import { initServer } from "../server/index.js";
+
+// Inicializar Electron cuando la aplicación esté lista
 app.whenReady().then(() => {
 
-  // Inicializar handlers y listeners IPC
+  // Inicializar backend (BD, migraciones, servicios)
+  initServer();
+
+  // Registrar handlers y listeners IPC (main ↔ renderer)
   registerIpcHandlers();
 
-
-  // Inicializar la ventana de la App 
+  // Crear la ventana principal de la aplicación
   createWindow();
 
+  // Escuchar evento de activación (comportamiento típico en macOS)
   app.on("activate", () => {
+    // Crear una nueva ventana si no existe ninguna abierta
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
   });
 });
 
-// Cerrar la app cuando todas las ventanas se cierran (excepto macOS)
+// Cerrar la aplicación cuando todas las ventanas se cierren (excepto en macOS)
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();

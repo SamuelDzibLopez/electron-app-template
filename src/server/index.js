@@ -1,22 +1,25 @@
-import Database from "better-sqlite3";
-import { app } from "electron";
-import path from "path";
+// Importar función para inicializar la base de datos
+import { initDatabase } from "./database.js";
+
+// Importar función para ejecutar migraciones de la base de datos
+import { runMigrations } from "./migrate.js";
+
+// Importar Picocolors para colorear logs en consola
 import pc from "picocolors";
 
-const dbPath = path.join(app.getPath("userData"), "personajes.db");
+/**
+ * Inicializar el backend de la aplicación
+ * - Inicializar la conexión a la base de datos
+ * - Ejecutar las migraciones necesarias
+ */
+export function initServer() {
 
-console.log(pc.green("DB path:"), pc.blue(dbPath));
+  // Inicializar la base de datos
+  initDatabase();
 
-const db = new Database(dbPath);
+  // Ejecutar migraciones y preparar la estructura de la BD
+  runMigrations();
 
-db.prepare(`
-  CREATE TABLE IF NOT EXISTS personajes (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT NOT NULL,
-    edad INTEGER
-  )
-`).run();
-
-console.log(pc.green("BD lista y preparada"));
-
-export default db;
+  // Mostrar mensaje de confirmación en consola
+  console.log(pc.green("Backend inicializado..."));
+}

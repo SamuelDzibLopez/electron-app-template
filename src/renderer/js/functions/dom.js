@@ -8,3 +8,17 @@ export const elements = {
   closeBtn: document.getElementById("closeBtn"),
   spanAuthor: document.getElementById("spanAuthor"),
 };
+
+export const inputs = {
+  inputId: document.getElementById("id"),
+  inputNombre: document.getElementById("nombre"),
+  inputEdad: document.getElementById("edad"),
+  output: document.getElementById("output"),
+}
+
+export const buttons = {
+  btnCreate: document.getElementById("btn-create"),
+  btnRead: document.getElementById("btn-read"),
+  btnUpdate: document.getElementById("btn-update"),
+  btnDelete: document.getElementById("btn-delete"),
+}
