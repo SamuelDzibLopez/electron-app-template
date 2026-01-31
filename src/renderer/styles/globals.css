@@ -184,3 +184,79 @@ button.danger:hover {
   width: 100%;
 }
 
+/* =========================
+   FORM
+========================= */
+.form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #111;
+  color: #fff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.crud-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #2a2a2a;
+  color: #fff;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.primary {
+  background: #2563eb;
+}
+
+.btn.warning {
+  background: #ca8a04;
+}
+
+.btn.danger {
+  background: #dc2626;
+}
+
+/* =========================
+   OUTPUT
+========================= */
+.output pre {
+  background: #0b0b0b;
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow: auto;
+  font-size: 0.85rem;
+}

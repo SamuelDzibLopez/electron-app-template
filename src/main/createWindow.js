@@ -1,37 +1,44 @@
-// Importación de módulos de Electron
+// Importar módulos principales de Electron para manejo de ventanas y menú
 import { BrowserWindow, Menu } from "electron/main";
 
-// Importación de módulos de Node
+// Importar módulos nativos de Node.js
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Reemplazo de __dirname para ES Modules
+// Reemplazar __dirname para compatibilidad con ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Creación y configuración de ventana principal de la aplicación
+// Crear y configurar la ventana principal de la aplicación
 export function createWindow() {
   const win = new BrowserWindow({
+    // Definir dimensiones iniciales de la ventana
     width: 900,
     height: 650,
 
-    // Activar/Desactivar barra principal de ventana
+    // Activar o desactivar el frame nativo de la ventana
     frame: true,
+
+    // Definir icono de la aplicación
     icon: path.join(__dirname, "../assets/icons/favicon.ico"),
 
-    // Activar/Desactivar inicio de ventana FullScreen
+    // Activar o desactivar inicio en modo pantalla completa
     fullscreen: false,
 
+    // Configurar preferencias del proceso renderer
     webPreferences: {
+      // Definir archivo preload para exponer APIs seguras
       preload: path.join(__dirname, "../preload/index.cjs"),
+
+      // Aislar contexto entre preload y renderer (seguridad)
       contextIsolation: true,
 
-      //Desactivar en versión final build
+      // Activar herramientas de desarrollo (desactivar en build final)
       devTools: true,
     },
   });
 
-  // Template (Array) para navbar de ventana    
+  // Definir template (Array) para un menú personalizado de la ventana
   // const template = [
   //   {
   //     label: "Archivo",
@@ -41,15 +48,13 @@ export function createWindow() {
   //   }
   // ];
 
-  //Convertir Template (Array) en Menu personalizado
+  // Convertir el template (Array) en un menú de Electron
   // const menu = Menu.buildFromTemplate(template);
 
-  //Descomentar si desea eliminar (null) el menu navito default o uno personalizado (template)
-
+  // Eliminar el menú nativo o aplicar un menú personalizado
   // Menu.setApplicationMenu(null);
 
-  // Bloquear Ctrl + Shift + i o F12 (Descomentar para producción)
-
+  // Bloquear atajos para abrir DevTools (usar en producción)
   // win.webContents.on("before-input-event", (event, input) => {
   //   if (
   //     (input.control && input.shift && input.key.toLowerCase() === "i") ||
@@ -59,8 +64,9 @@ export function createWindow() {
   //   }
   // });
 
-  //Archivo de renderización
+  // Cargar archivo HTML principal del renderer
   win.loadFile("src/renderer/pages/index.html");
 
+  // Retornar instancia de la ventana creada
   return win;
 }
