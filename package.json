@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "electron-app-template",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Template base en Electron. Cambia este texto por la descripción de tu aplicación.",
   "main": "src/main/index.js",
   "scripts": {
