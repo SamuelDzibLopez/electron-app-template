@@ -1,4 +1,4 @@
-# Documentación y uso de Electron App Template + Server (`v2.0.0`)
+# Documentación y uso de Electron App Template + Server (`v2.0.1`)
 
 **¡Gracias por descargar y utilizar este proyecto personal!**
 
