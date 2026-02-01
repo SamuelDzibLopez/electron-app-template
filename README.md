@@ -111,7 +111,7 @@ Donde:
 Clona el **repositorio** en tu equipo:
 
 ~~~bash
-git clone https://github.com/SamuelDzibLopez/electron-app-template.git
+git clone https://github.com/SamuelDzibLopez/ElectronAppTemplate
 ~~~
 
 ***Nota:*** Una vez descargado el **repositorio**, trabaja siempre dentro del directorio del proyecto.
