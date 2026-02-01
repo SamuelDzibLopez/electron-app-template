@@ -39,30 +39,30 @@ export function createWindow() {
   });
 
   // Definir template (Array) para un menú personalizado de la ventana
-  // const template = [
-  //   {
-  //     label: "Archivo",
-  //     submenu: [
-  //       { role: "quit" }
-  //     ]
-  //   }
-  // ];
+  /* const template = [
+    {
+      label: "Archivo",
+      submenu: [
+        { role: "quit" }
+      ]
+    }
+  ]; */
 
   // Convertir el template (Array) en un menú de Electron
-  // const menu = Menu.buildFromTemplate(template);
+  /* const menu = Menu.buildFromTemplate(template); */
 
   // Eliminar el menú nativo o aplicar un menú personalizado
-  // Menu.setApplicationMenu(null);
+  /* Menu.setApplicationMenu(null); */
 
   // Bloquear atajos para abrir DevTools (usar en producción)
-  // win.webContents.on("before-input-event", (event, input) => {
-  //   if (
-  //     (input.control && input.shift && input.key.toLowerCase() === "i") ||
-  //     input.key === "F12"
-  //   ) {
-  //     event.preventDefault();
-  //   }
-  // });
+  /* win.webContents.on("before-input-event", (event, input) => {
+    if (
+      (input.control && input.shift && input.key.toLowerCase() === "i") ||
+      input.key === "F12"
+    ) {
+      event.preventDefault();
+    }
+  }); */
 
   // Cargar archivo HTML principal del renderer
   win.loadFile("src/renderer/pages/index.html");

@@ -14,8 +14,7 @@
   "devDependencies": {
     "electron": "^40.0.0",
     "electron-builder": "^26.4.0",
-    "electron-rebuild": "^3.2.9",
-    "picocolors": "^1.1.1"
+    "electron-rebuild": "^3.2.9"
   },
   "build": {
     "appId": "com.tudominio.tuapp",
@@ -41,6 +40,7 @@
     }
   },
   "dependencies": {
-    "better-sqlite3": "^12.6.2"
+    "better-sqlite3": "^12.6.2",
+    "picocolors": "^1.1.1"
   }
 }

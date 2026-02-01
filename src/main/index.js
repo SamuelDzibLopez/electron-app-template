@@ -5,6 +5,9 @@ import { app, BrowserWindow } from "electron/main";
 import { createWindow } from "./createWindow.js";
 import { registerIpcHandlers } from "./ipc.js";
 
+// Importar Picocolors para colorear logs en consola
+import pc from "picocolors";
+
 // Importar función principal para inicializar el backend (server)
 import { initServer } from "../server/index.js";
 
@@ -32,6 +35,7 @@ app.whenReady().then(() => {
 // Cerrar la aplicación cuando todas las ventanas se cierren (excepto en macOS)
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
+    console.log(pc.red("Cerrando App..."))
     app.quit();
   }
 });

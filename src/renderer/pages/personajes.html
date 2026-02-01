@@ -7,31 +7,45 @@
 
   <!-- Estilos globales -->
   <link rel="stylesheet" href="./../styles/globals.css" />
+
 </head>
 <body>
 
   <main class="container">
-
     <header class="header">
-      <h1>CRUD de Personajes</h1>
-      <p>Backend local vía IPC (sin HTTP)</p>
+      <h1>Actions in Server.</h1>
+      <p class="subtitle">
+        Backend local vía IPC (sin HTTP)
+      </p>
     </header>
 
     <!-- FORM -->
     <section class="form">
 
       <div class="field">
-        <label for="id">ID</label>
+        <label for="id">
+          <b>
+            ID:
+          </b>
+        </label>
         <input id="id" type="number" placeholder="ID del personaje" />
       </div>
 
       <div class="field">
-        <label for="nombre">Nombre</label>
+        <label for="nombre">
+          <b>
+            Nombre:
+          </b>
+        </label>
         <input id="nombre" type="text" placeholder="Nombre" />
       </div>
 
       <div class="field">
-        <label for="edad">Edad</label>
+        <label for="edad">
+          <b>
+            Edad:
+          </b>
+        </label>
         <input id="edad" type="number" placeholder="Edad" />
       </div>
 
@@ -40,9 +54,27 @@
     <!-- ACTIONS -->
     <section class="crud-actions">
       <button id="btn-create" class="btn primary">Create</button>
-      <button id="btn-read" class="btn">Read</button>
       <button id="btn-update" class="btn warning">Update</button>
-      <button id="btn-delete" class="btn danger">Delete</button>
+    </section>
+
+    <!-- TABLA DE PERSONAJES -->
+    <section>
+      <h3>Lista de Personajes:</h3>
+
+      <table class="crud-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody id="tabla-personajes">
+          <!-- Aquí se llenará dinámicamente -->
+        </tbody>
+      </table>
     </section>
 
     <!-- OUTPUT -->
@@ -51,14 +83,6 @@
     </section>
 
     <section class="card">
-      <p id="info" class="info">
-      </p>
-
-      <p class="info">
-        Creador de proyecto: <a href="https://github.com/SamuelDzibLopez" target="_blank" rel="noopener noreferrer" class="github-text-link">
-          <span id="spanAuthor" class="text-bold"></span>
-        </a> 
-      </p>
 
       <div class="actions">
         <button id="btnFullscreen">
@@ -71,7 +95,6 @@
       </div>
     </section>
 
-    <!-- LINKS -->
     <section class="links">
       <a href="index.html">← Regresar a Home</a>
       <a href="about.html">Ir a About →</a>
@@ -90,7 +113,6 @@
 
   </main>
 
-  <!-- JS -->
   <script type="module" src="./../js/globals.js"></script>
   <script type="module" src="./../js/personajes.js"></script>
 </body>

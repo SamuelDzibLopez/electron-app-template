@@ -18,7 +18,5 @@ export const inputs = {
 
 export const buttons = {
   btnCreate: document.getElementById("btn-create"),
-  btnRead: document.getElementById("btn-read"),
   btnUpdate: document.getElementById("btn-update"),
-  btnDelete: document.getElementById("btn-delete"),
 }

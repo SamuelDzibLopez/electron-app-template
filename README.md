@@ -1,25 +1,27 @@
-# Documentación y uso de Electron App Template (`v1.0.3`)
+# Documentación y uso de Electron App Template + Server (`v2.0.0`)
 
 **¡Gracias por descargar y utilizar este proyecto personal!**
 
 Este proyecto está diseñado para generar y empaquetar **Aplicaciones Web** y convertirlas en **Aplicaciones Nativas** utilizando **Electron**.
 
-Esta documentación te llevará **desde cero** hasta obtener un **.exe instalable** usando **Electron** y **electron-builder (NSIS)** a partir de este **template**.
+``Electron App Template`` permite la creación de  **Aplicaciones nativas** ***con*** o ***sin Backend Local***, ofreciendo soporte opcional para un ***Server local*** (``API interna`` + ``base de datos``).
+
+Esta documentación te llevará **desde cero** hasta obtener un ``.exe`` **instalable** utilizando **Electron** y **electron-builder (NSIS)** a partir de este **template**.
 
 ---
 
 ## Requisitos
 
 - La **aplicación** debe desarrollarse utilizando:
-  - ``HTML``
-  - ``CSS``
-  - ``JavaScript``
+  - ``HTML``.
+  - ``CSS``.
+  - ``JavaScript``.
 
 - El proceso de ***build*** debe ejecutarse en:
-  - ***Windows 10***
-  - ***Windows 11***
+  - ***Windows 10***.
+  - ***Windows 11***.
 
-- Tener instalado **Node.js**
+- Tener instalado **Node.js**.
 
 Para verificar la instalación:
 
@@ -72,9 +74,17 @@ electron-app-template/
 │   │   └── styles/             # Estilos CSS
 │   │       └── globals.css     # Estilos globales
 │   │
-│   └── assets/                 # Recursos estáticos
-│       └── icons/
-│           └── favicon.ico     # Icono de la aplicación
+│   ├── assets/                 # Recursos estáticos
+│   │   └── icons/
+│   │       └── favicon.ico     # Icono de la aplicación
+│   │
+│   └── server/                 # Proceso de server (Backend)
+│       ├── services/           # Servicios API backend
+│       │   └── *.service.js
+│       │ 
+│       ├── database.js         #  Funcines para BD
+│       ├── migrate.js          #  Inicialización y preparación de BD
+│       └── index.js            #  Punto de entrada del Backend
 │
 ├── dist/                       # Salida del build (generado)
 │   └── *.exe                   # Instalador para Windows
@@ -92,6 +102,7 @@ Donde:
 - ``renderer/`` :Contiene toda la **interfaz visual** (``HTML``, ``CSS`` y ``JS``).
 - ``assets/`` :Archivos estáticos como ***iconos*** e **imágenes**.
 - ``dist/`` :Carpeta generada automáticamente al ejecutar el ***build*** (``npm run build``).
+- ``server/`` :Funcionalidad del ***Backend***.
 
 ---
 
@@ -130,6 +141,8 @@ npm start
 **Nota:** Este comando abrirá la aplicación en una **ventana nativa de Electron**.
 
 Aquí podrás ***modificar*** y ***desarrollar*** tu aplicación usando ``HTML``, ``CSS`` y ``JavaScript``.
+
+***Nota:*** Si su ***App*** a crear no necesita de un ***BackEnd***, puede eliminar el directorio `server/` y la invocación de la función `initServer()` encontrada en  `main/index.js`. junto con sus dependencias necesarias, tales como `better-sqlite3`.
 
 ---
 

@@ -249,9 +249,6 @@ button.danger:hover {
   background: #dc2626;
 }
 
-/* =========================
-   OUTPUT
-========================= */
 .output pre {
   background: #0b0b0b;
   padding: 1rem;
@@ -259,4 +256,42 @@ button.danger:hover {
   max-height: 300px;
   overflow: auto;
   font-size: 0.85rem;
+}
+
+.crud-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #1e1e1e;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+  
+.crud-table th, .crud-table td {
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+  
+.crud-table th {
+  background: #333;
+}
+  
+.crud-table tr:hover {
+  background: #2a2a2a;
+}
+  
+.btn-delete-row {
+  background: #c0392b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+.btn-delete-row:hover {
+  background: #e74c3c;
 }
